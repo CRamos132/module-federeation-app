@@ -1,4 +1,4 @@
-// const deps = require("./package.json").dependencies;
+const deps = require("./package.json").dependencies;
 
 module.exports = {
   name: "app1",
@@ -7,5 +7,17 @@ module.exports = {
     "./App": "./src/App",
   },
   filename: "remoteEntry.js",
-  shared: {}
+  shared: {
+    ...deps,
+    react: {
+      eager: true,
+      singleton: true,
+      requiredVersion: deps.react,
+    },
+    "react-dom": {
+      eager: true,
+      singleton: true,
+      requiredVersion: deps["react-dom"],
+    },
+  },
 };
