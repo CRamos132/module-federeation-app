@@ -1,14 +1,19 @@
 import logo from './logo.svg';
 import './App.css';
+// import { ReactLocation, Router } from 'react-location';
 
-function App() {
+
+function Content({title = 'test', count, add}) {
+  const url = window.location.href;
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Edit <code>{title} - {count}</code> and save to reload.
         </p>
+        <p>URL = {url}</p>
+        <button onClick={add}>Conta</button>
         <a
           className="App-link"
           href="https://reactjs.org"
@@ -19,6 +24,14 @@ function App() {
         </a>
       </header>
     </div>
+  )
+}
+
+//  const location = new ReactLocation()
+
+function App({...props}) {
+  return (
+    <Content {...props} />
   );
 }
 
