@@ -1,7 +1,7 @@
 const deps = require("./package.json").dependencies;
 
 module.exports = {
-  name: "app1",
+  name: "apzao",
   remoteType: 'var',
   exposes: {
     "./App": "./src/App",
